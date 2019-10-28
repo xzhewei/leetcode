@@ -35,7 +35,9 @@ class Solution:
         prenode = ListNode(0)
         lastnode = prenode
         while( val or l1 or l2):
-            val, cur = divmod((l1.val if l1 else 0)+(l2.val if l2 else 0)+val, 10)
+            val, cur = divmod((l1.val if l1 else 0)+
+                              (l2.val if l2 else 0)+val, 10) 
+                              # val是被整除数，cur数余数
             lastnode.next = ListNode(cur)
             lastnode = lastnode.next
             l1 = l1.next if l1 else None
