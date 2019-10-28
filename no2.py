@@ -18,27 +18,26 @@ No.2 两数相加
 """
 
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 class Solution:
     def addTwoNumbers(self, l1, l2):
-        head = l1
-        tmp = 0
-        while(l1.next and l2.next):
-            tmp = l1.val + l2.val + tmp
-            if tmp > 9:
-                l1.val = tmp - 10
-                tmp = 1
-            else:
-                tmp = 0
-            l1 = l1.next
-            l2 = l2.next
-        while(l1.next):
-            if tmp == 1 and l1.next
-
-
-
-        
+        """
+        关键在于divmod的函数使用
+        - time: 84 ms
+        - men: 13.9 MB
+        """
+        # divmod
+        val = 0
+        prenode = ListNode(0)
+        lastnode = prenode
+        while( val or l1 or l2):
+            val, cur = divmod((l1.val if l1 else 0)+(l2.val if l2 else 0)+val, 10)
+            lastnode.next = ListNode(cur)
+            lastnode = lastnode.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+        return prenode.next
